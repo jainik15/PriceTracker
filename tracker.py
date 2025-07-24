@@ -2,8 +2,8 @@ import requests
 import smtplib
 import time
 from bs4 import BeautifulSoup
-PRODUCT_URL = 'https://www.amazon.in/Dell-MS116-1000DPI-Wired-Optical/dp/B01HJI0FS2/?_encoding=UTF8&pd_rd_w=lMC9B&content-id=amzn1.sym.211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_p=211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_r=3SRE7BBSCCTBVENVBQ25&pd_rd_wg=5UHWN&pd_rd_r=b000b923-821e-4c6b-a2ea-e9911da78174&ref_=pd_hp_d_btf_crs_zg_bs_976392031'
-TARGET_PRICE = 360
+PRODUCT_URL = 'product_url'
+TARGET_PRICE = 'price'
 
 SENDER_EMAIL = ''
 SENDER_PASSWORD = ''
