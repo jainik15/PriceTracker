@@ -2,12 +2,10 @@ import requests
 import smtplib
 import time
 from bs4 import BeautifulSoup
-PRODUCT_URL = 'https://www.amazon.in/Dell-MS116-1000DPI-Wired-Optical/dp/B01HJI0FS2/?_encoding=UTF8&pd_rd_w=lMC9B&content-id=amzn1.sym.211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_p=211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_r=3SRE7BBSCCTBVENVBQ25&pd_rd_wg=5UHWN&pd_rd_r=b000b923-821e-4c6b-a2ea-e9911da78174&ref_=pd_hp_d_btf_crs_zg_bs_976392031'
-TARGET_PRICE = 360
 
-SENDER_EMAIL = 'jxinikxd@gmail.com'
-SENDER_PASSWORD = 'bowtsqhtepieuqxj'
-RECEIVER_EMAIL = 'jainikworks@gmail.com'
+SENDER_EMAIL = ''
+SENDER_PASSWORD = ''
+RECEIVER_EMAIL = ''
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
     'Accept-Language': 'en-US, en;q=0.5'
@@ -21,7 +19,7 @@ def send_email_alert(product_title):
         server.login(SENDER_EMAIL,SENDER_PASSWORD)
 
         subject = f"Price Drop Alert: {product_title}"
-        body = f" The {product_title} Price has dropped below {TARGET_PRICE} \n Grab it now: {PRODUCT_URL}"
+        body = f" The {product_title} Price has dropped below {prd_target_price} \n Grab it now: {url_to_track}"
 
         message = f"Subject: {subject}\n\n {body}"
         server.sendmail(SENDER_EMAIL,RECEIVER_EMAIL, message.encode('utf-8'))
@@ -32,7 +30,7 @@ def send_email_alert(product_title):
     finally:
         server.quit()
 
-def check_price():
+def check_price(PRODUCT_URL, TARGET_PRICE):
     print("fetching product data...")
     response = requests.get(PRODUCT_URL, headers=HEADERS)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -70,8 +68,17 @@ def check_price():
         print(f"Cant find product price {e}")
         current_price = "Not Found"
 if __name__ == "__main__":
+    print("---AMAZON PRICE TRACKER---\n")
+
+    url_to_track = input("Enter Product URL: \n")
     while True:
-        check_price()
+        try:
+            prd_target_price = int(input("Enter Target Price: \n"))
+            break
+        except ValueError:
+            print("Invalid input! Enter valid targeted price!")
+    while True:
+        check_price(url_to_track,prd_target_price)
         print("Waiting for 24 hours before next price check")
         time.sleep(60)
     
