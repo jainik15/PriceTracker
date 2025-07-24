@@ -5,9 +5,9 @@ from bs4 import BeautifulSoup
 PRODUCT_URL = 'https://www.amazon.in/Dell-MS116-1000DPI-Wired-Optical/dp/B01HJI0FS2/?_encoding=UTF8&pd_rd_w=lMC9B&content-id=amzn1.sym.211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_p=211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_r=3SRE7BBSCCTBVENVBQ25&pd_rd_wg=5UHWN&pd_rd_r=b000b923-821e-4c6b-a2ea-e9911da78174&ref_=pd_hp_d_btf_crs_zg_bs_976392031'
 TARGET_PRICE = 360
 
-SENDER_EMAIL = 'jxinikxd@gmail.com'
-SENDER_PASSWORD = 'bowtsqhtepieuqxj'
-RECEIVER_EMAIL = 'jainikworks@gmail.com'
+SENDER_EMAIL = ''
+SENDER_PASSWORD = ''
+RECEIVER_EMAIL = ''
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
     'Accept-Language': 'en-US, en;q=0.5'
